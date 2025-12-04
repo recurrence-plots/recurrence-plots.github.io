@@ -5,7 +5,9 @@ import InteractiveTutorial from './sections/InteractiveTutorial';
 import Methodology from './sections/Methodology';
 import Results from './sections/Results';
 import ResearcherGuide from './sections/ResearcherGuide';
+import InteractivePipeline from './sections/InteractivePipeline';
 import Conclusion from './sections/Conclusion';
+import ThemeToggle from './components/ThemeToggle';
 
 function App() {
     return (
@@ -18,11 +20,14 @@ function App() {
                         <a href="#demo" className="hover:text-slate-900 transition-colors">Demo</a>
                         <a href="#methodology" className="hover:text-slate-900 transition-colors">Methodology</a>
                         <a href="#results" className="hover:text-slate-900 transition-colors">Results</a>
-                        <a href="#guide" className="hover:text-slate-900 transition-colors">Guide</a>
+                        <a href="#guide" className="hover:text-slate-900 dark:hover:text-white transition-colors">Guide</a>
                     </div>
-                    <a href="https://github.com/blackpearl006" target="_blank" rel="noreferrer" className="text-sm font-medium text-slate-900 bg-slate-100 px-4 py-2 rounded-full hover:bg-slate-200 transition-colors">
-                        GitHub
-                    </a>
+                    <div className="flex items-center gap-4">
+                        <ThemeToggle />
+                        <a href="https://github.com/blackpearl006" target="_blank" rel="noreferrer" className="text-sm font-medium text-slate-900 bg-slate-100 px-4 py-2 rounded-full hover:bg-slate-200 transition-colors dark:bg-slate-800 dark:text-white dark:hover:bg-slate-700">
+                            GitHub
+                        </a>
+                    </div>
                 </div>
             </nav>
 
@@ -30,6 +35,7 @@ function App() {
                 <Hero />
                 <ResearchContext />
                 <InteractiveTutorial />
+                <InteractivePipeline />
                 <Methodology />
                 <Results />
                 <ResearcherGuide />

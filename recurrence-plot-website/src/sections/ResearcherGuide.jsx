@@ -2,6 +2,8 @@ import React from 'react';
 import Section from '../components/Section';
 import Accordion from '../components/Accordion';
 import { BookOpen } from 'lucide-react';
+import 'katex/dist/katex.min.css';
+import { InlineMath, BlockMath } from 'react-katex';
 
 const ResearcherGuide = () => {
     const items = [
@@ -31,10 +33,10 @@ const ResearcherGuide = () => {
             content: (
                 <div className="space-y-4">
                     <p>
-                        The core mathematical justification comes from <strong>Takens' Embedding Theorem (1981)</strong>. It states that we can reconstruct a topologically equivalent phase space from a single observed time series $x(t)$.
+                        The core mathematical justification comes from <strong>Takens' Embedding Theorem (1981)</strong>. It states that we can reconstruct a topologically equivalent phase space from a single observed time series <InlineMath math="x(t)" />.
                     </p>
-                    <div className="bg-slate-100 p-4 rounded-lg font-mono text-sm overflow-x-auto">
-                        $\vec{'{'}v{'}'}_i = [x_i, x_{'{'}i+\tau{'}'}, x_{'{'}i+2\tau{'}'}, ..., x_{'{'}i+(m-1)\tau{'}'}]$
+                    <div className="bg-slate-100 dark:bg-slate-900 p-4 rounded-lg overflow-x-auto my-4">
+                        <BlockMath math="\vec{v}_i = [x_i, x_{i+\tau}, x_{i+2\tau}, ..., x_{i+(m-1)\tau}]" />
                     </div>
                     <p>
                         This delay-coordinate map is a diffeomorphism (smooth, invertible map) on the underlying attractor, meaning the topological properties (like fractal dimension, Lyapunov exponents) are preserved in our reconstruction.
@@ -50,7 +52,7 @@ const ResearcherGuide = () => {
                         Correct reconstruction depends on two critical parameters. If chosen incorrectly, the structure is distorted.
                     </p>
                     <div>
-                        <h4 className="font-bold text-slate-900 mb-1">1. Time Delay ($\tau$)</h4>
+                        <h4 className="font-bold text-slate-900 dark:text-white mb-1">1. Time Delay (<InlineMath math="\tau" />)</h4>
                         <p className="mb-2">
                             Determined using <strong>Average Mutual Information (AMI)</strong>. We choose the first local minimum of the AMI function.
                         </p>
@@ -60,9 +62,9 @@ const ResearcherGuide = () => {
                         </ul>
                     </div>
                     <div>
-                        <h4 className="font-bold text-slate-900 mb-1">2. Embedding Dimension ($m$)</h4>
+                        <h4 className="font-bold text-slate-900 dark:text-white mb-1">2. Embedding Dimension (<InlineMath math="m" />)</h4>
                         <p className="mb-2">
-                            Determined using <strong>False Nearest Neighbors (FNN)</strong>. We increase $m$ until the percentage of false neighbors drops to zero.
+                            Determined using <strong>False Nearest Neighbors (FNN)</strong>. We increase <InlineMath math="m" /> until the percentage of false neighbors drops to zero.
                         </p>
                         <ul className="list-disc pl-5 text-sm">
                             <li>Too small: Trajectory intersects itself (projection overlap).</li>
