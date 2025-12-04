@@ -34,7 +34,7 @@ const ResearcherGuide = () => {
                         The core mathematical justification comes from <strong>Takens' Embedding Theorem (1981)</strong>. It states that we can reconstruct a topologically equivalent phase space from a single observed time series $x(t)$.
                     </p>
                     <div className="bg-slate-100 p-4 rounded-lg font-mono text-sm overflow-x-auto">
-                        $\vec{v}_i = [x_i, x_{i +\tau}, x_{i + 2\tau}, ..., x_{i + (m - 1)\tau}]$
+                        $\vec{'{'}v{'}'}_i = [x_i, x_{'{'}i+\tau{'}'}, x_{'{'}i+2\tau{'}'}, ..., x_{'{'}i+(m-1)\tau{'}'}]$
                     </div>
                     <p>
                         This delay-coordinate map is a diffeomorphism (smooth, invertible map) on the underlying attractor, meaning the topological properties (like fractal dimension, Lyapunov exponents) are preserved in our reconstruction.
