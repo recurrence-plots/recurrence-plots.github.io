@@ -54,7 +54,7 @@ const ResearcherGuide = () => {
                     <div>
                         <h4 className="font-bold text-slate-900 dark:text-white mb-1">1. Time Delay (<InlineMath math="\tau" />)</h4>
                         <p className="mb-2">
-                            Determined using <strong>Average Mutual Information (AMI)</strong>. We choose the first local minimum of the AMI function.
+                            Determined using the <strong>first minima of the Autocorrelation Function</strong>. This ensures that the coordinates are independent enough to unfold the attractor.
                         </p>
                         <ul className="list-disc pl-5 text-sm">
                             <li>Too small: Coordinates are correlated, trajectory is flattened along diagonal.</li>
@@ -64,7 +64,7 @@ const ResearcherGuide = () => {
                     <div>
                         <h4 className="font-bold text-slate-900 dark:text-white mb-1">2. Embedding Dimension (<InlineMath math="m" />)</h4>
                         <p className="mb-2">
-                            Determined using <strong>False Nearest Neighbors (FNN)</strong>. We increase <InlineMath math="m" /> until the percentage of false neighbors drops to zero.
+                            Determined using <strong>Cao's Algorithm</strong>. We increase <InlineMath math="m" /> until the number of false nearest neighbors is minimized, ensuring the attractor is fully unfolded without self-intersections.
                         </p>
                         <ul className="list-disc pl-5 text-sm">
                             <li>Too small: Trajectory intersects itself (projection overlap).</li>

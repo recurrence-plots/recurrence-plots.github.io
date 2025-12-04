@@ -47,8 +47,23 @@ const Conclusion = () => {
                     </div>
                 </div>
 
-                <div className="border-t border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-slate-500">
-                    <p>© 2024 Ninad Aithal · Centre for Brain Research, IISc Bengaluru</p>
+                <div className="border-t border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-start gap-8 text-sm text-slate-500">
+                    <div>
+                        <p className="mb-4">© 2025 Ninad Aithal</p>
+                        <div className="bg-slate-800 p-4 rounded-lg font-mono text-xs text-slate-400 overflow-x-auto max-w-xl">
+                            <p className="mb-2 text-slate-500 select-none"># Cite this work:</p>
+                            <pre className="whitespace-pre-wrap select-all">
+                                {`@inproceedings{aithal2024mci,
+  title={Mci detection using fmri time series embeddings of recurrence plots},
+  author={Aithal, Ninad and Pradeep, Chakka Sai and Sinha, Neelam},
+  booktitle={2024 IEEE International Symposium on Biomedical Imaging (ISBI)},
+  pages={1--4},
+  year={2024},
+  organization={IEEE}
+}`}
+                            </pre>
+                        </div>
+                    </div>
                     <div className="flex gap-6">
                         <a href="#" className="hover:text-white transition-colors">Privacy</a>
                         <a href="#" className="hover:text-white transition-colors">Contact</a>
