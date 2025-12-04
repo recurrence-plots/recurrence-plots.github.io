@@ -24,6 +24,18 @@ const InteractivePipeline = () => {
         return () => observer.disconnect();
     }, []);
 
+    // Don't render until signal is loaded
+    if (!signal || signal.length === 0) {
+        return (
+            <Section id="pipeline" className="bg-white dark:bg-slate-950 transition-colors duration-300">
+                <div className="text-center py-20">
+                    <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-teal-500 mx-auto"></div>
+                    <p className="text-slate-500 dark:text-slate-400 mt-4">Loading visualization...</p>
+                </div>
+            </Section>
+        );
+    }
+
     return (
         <Section id="pipeline" className="bg-white dark:bg-slate-950 transition-colors duration-300">
             <div className="text-center mb-12">
