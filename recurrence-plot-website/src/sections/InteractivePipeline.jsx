@@ -11,7 +11,7 @@ const InteractivePipeline = () => {
 
     // Generate a Lorenz attractor signal for the demo
     useEffect(() => {
-        const { data } = generateSignal('lorenz', { noise: 0 });
+        const data = generateSignal('lorenz', 500, 0.05, 0);
         setSignal(data);
 
         // Check for dark mode
