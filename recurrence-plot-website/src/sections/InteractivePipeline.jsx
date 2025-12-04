@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import Section from '../components/Section';
 import PhaseSpaceViz from '../components/PhaseSpaceViz';
+import TimeSeriesPlot from '../components/TimeSeriesPlot';
 import { generateSignal } from '../utils/signal';
-import { SlidersHorizontal } from 'lucide-react';
+import { SlidersHorizontal, Activity, Box } from 'lucide-react';
+import { InlineMath, BlockMath } from 'react-katex';
 
 const InteractivePipeline = () => {
     const [tau, setTau] = useState(10);
@@ -75,11 +77,37 @@ const InteractivePipeline = () => {
                         </div>
                     </div>
 
-                    <div className="bg-blue-50 dark:bg-blue-900/20 p-6 rounded-2xl border border-blue-100 dark:border-blue-800">
-                        <h4 className="font-bold text-blue-900 dark:text-blue-300 mb-2">What's happening?</h4>
-                        <p className="text-sm text-blue-800 dark:text-blue-400">
-                            We take a single variable $x(t)$ and create vectors $[x(t), x(t+\tau), x(t+2\tau)]$. This reconstructs the hidden geometry of the system (Takens' Theorem).
+                    <div className="bg-slate-50 dark:bg-slate-900 p-6 rounded-2xl border border-slate-200 dark:border-slate-800">
+                        <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-4 flex items-center gap-2">
+                            <Activity size={20} />
+                            1. Input Signal
+                        </h3>
+                        <div className="h-32 w-full bg-white dark:bg-slate-950 rounded-lg border border-slate-200 dark:border-slate-800 p-2 mb-2">
+                            <TimeSeriesPlot signal={signal.slice(0, 200)} color={isDark ? '#2dd4bf' : '#4f46e5'} />
+                        </div>
+                        <p className="text-xs text-slate-500 dark:text-slate-400 text-center">
+                            Lorenz System (X-component)
                         </p>
+                    </div>
+
+                    <div className="bg-blue-50 dark:bg-blue-900/20 p-6 rounded-2xl border border-blue-100 dark:border-blue-800">
+                        <h4 className="font-bold text-blue-900 dark:text-blue-300 mb-2 flex items-center gap-2">
+                            <Box size={20} />
+                            2. Sliding Window Embedding
+                        </h4>
+                        <p className="text-sm text-blue-800 dark:text-blue-400 mb-4">
+                            We reconstruct the hidden 3D geometry by creating vectors from time-delayed samples:
+                        </p>
+                        <div className="bg-white/50 dark:bg-slate-900/50 p-3 rounded-lg text-center overflow-x-auto">
+                            <BlockMath math="\vec{v}(t) = [x(t), x(t+\tau), x(t+2\tau)]" />
+                        </div>
+                        <div className="mt-4 text-xs text-blue-700 dark:text-blue-300">
+                            <ul className="list-disc pl-4 space-y-1">
+                                <li><strong>x(t)</strong>: Current value</li>
+                                <li><strong>x(t+τ)</strong>: Value <InlineMath math="\tau" /> steps ahead</li>
+                                <li><strong>x(t+2τ)</strong>: Value <InlineMath math="2\tau" /> steps ahead</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
 
