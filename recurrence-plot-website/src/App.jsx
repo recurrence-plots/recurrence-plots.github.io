@@ -4,6 +4,7 @@ import ResearchContext from './sections/ResearchContext';
 import InteractiveTutorial from './sections/InteractiveTutorial';
 import Methodology from './sections/Methodology';
 import Results from './sections/Results';
+import ResearcherGuide from './sections/ResearcherGuide';
 import Conclusion from './sections/Conclusion';
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
                         <a href="#demo" className="hover:text-slate-900 transition-colors">Demo</a>
                         <a href="#methodology" className="hover:text-slate-900 transition-colors">Methodology</a>
                         <a href="#results" className="hover:text-slate-900 transition-colors">Results</a>
+                        <a href="#guide" className="hover:text-slate-900 transition-colors">Guide</a>
                     </div>
                     <a href="https://github.com/blackpearl006" target="_blank" rel="noreferrer" className="text-sm font-medium text-slate-900 bg-slate-100 px-4 py-2 rounded-full hover:bg-slate-200 transition-colors">
                         GitHub
@@ -30,6 +32,7 @@ function App() {
                 <InteractiveTutorial />
                 <Methodology />
                 <Results />
+                <ResearcherGuide />
             </main>
 
             <Conclusion />
